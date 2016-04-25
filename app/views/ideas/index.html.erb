@@ -1,0 +1,31 @@
+<h1>Idea Factory</h1>
+<hr />
+<div>
+<% @ideas.each do |i| %>
+  <div>
+    <%= i.title %>
+  </div>
+  <div>
+    <%= i.body %>
+  </div>
+  <div>
+    <div style="display: inline-block; float: left">
+      <% if i.user.id = current_user.id %>
+        <%= link_to "Edit #{current_user.full_name}", edit_idea_path(i) %>
+      <% else %>
+        <%= link_to "Show by #{i.user.full_name}", idea_path(i) %></span>
+      <% end %>
+    </div>
+    <div style="display: inline-block; float: right">
+      <span>Members: <%= i.members.count %> </span>
+      |
+      <span>Likes: <%= i.likes.count %> </span>
+    </div>
+  </div>
+  <div>
+
+  </div>
+  <hr />
+<% end %>
+
+</div>

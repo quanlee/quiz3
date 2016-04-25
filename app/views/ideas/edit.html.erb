@@ -1,0 +1,13 @@
+<h2>Edit Idea</h2>
+<%= form_for @idea do |i|%>
+<div>
+  <%= i.label :title %>
+  <%= i.text_field :title %>
+</div>
+<div>
+  <%= i.label :body %>
+  <%= i.text_area :body %>
+</div>
+<%= link_to "Delete this idea", idea_path(i), method: :delete %>
+<%= i.submit %>
+<% end %>
